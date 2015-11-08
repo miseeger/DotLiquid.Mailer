@@ -1,0 +1,17 @@
+﻿<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<body>
+{{Cust.Salutation}},<br/><br/>
+thank you for the following order made for {{Cust.Firstname}} {{Cust.Lastname}}:
+
+<ul>
+    {% for Item in Itemlist -%}
+    <li>
+        {{Item.Quantity}} x {{Item.Name}}
+    </li>
+    {% endfor -%}
+</ul>
+
+Your Sales Company.
+</body>
+</html>

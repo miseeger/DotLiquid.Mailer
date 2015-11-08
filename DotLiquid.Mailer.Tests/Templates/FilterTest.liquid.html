@@ -1,0 +1,22 @@
+﻿<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<body>
+<h3>Camel cased item list:</h3>
+<ul>
+    {% for Item in Itemlist -%}
+    <li>
+        {{Item.Name | camelcase}}
+    </li>
+    {% endfor -%}
+</ul>
+
+<h3>Pascal cased item list:</h3>
+<ul>
+    {% for Item in Itemlist -%}
+    <li>
+        {{Item.Name | pascalcase}}
+    </li>
+    {% endfor -%}
+</ul>
+</body>
+</html>
