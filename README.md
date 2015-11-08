@@ -18,7 +18,7 @@ created by Olav Nybø. He also wrote a great
 
  **Current Version: 1.0.0.0**
  
- Get it from [nuget.org/packages/mailzor](https://nuget.org/packages/mailzor) or via 
+ Get it from [nuget.org/packages/DotLiquid.Mailer](https://www.nuget.org/packages/DotLiquid.Mailer) or via 
  Package Manager Console
  
   > *PM> Install-Package DotLiquid.Mailer*
