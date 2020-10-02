@@ -19,8 +19,8 @@ namespace DotLiquid.Mailer
         void RegisterTag<T>(string tagName) where T : Tag, new();
         void RegisterFilter(Type filter);
 
-        bool SendFromFile<T>(string subject, string templateFile, T data, string to, string from = "");
-        bool Send<T>(string subject, string liquidTemplate, T data, string to, string from = "");
+        bool SendFromFile<T>(string subject, string templateFile, T data, string to, string from = "", string cc = "", string bcc = "");
+        bool Send<T>(string subject, string liquidTemplate, T data, string to, string from = "", string cc = "", string bcc = "");
     }
 
 }
