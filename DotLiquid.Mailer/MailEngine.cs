@@ -66,7 +66,7 @@ namespace DotLiquid.Mailer
 
 
         public bool SendFromFile<T>(string subject, string templateFile, T data, string to, 
-            string from = "")
+            string from = "", string cc = "", string bcc = "")
         {
             templateFile = templateFile.Contains(@"\") 
                                 ? templateFile 
@@ -75,7 +75,7 @@ namespace DotLiquid.Mailer
             if (File.Exists(templateFile))
             {
                 var liquidTemplate = File.ReadAllText(templateFile);
-                Send<T>(subject, liquidTemplate, data, to, from);
+                Send<T>(subject, liquidTemplate, data, to, from, cc, bcc);
             }
             else
             {
@@ -87,7 +87,7 @@ namespace DotLiquid.Mailer
 
 
         public bool Send<T>(string subject, string liquidTemplate, T data, string to, 
-            string from = "")
+            string from = "", string cc = "", string bcc = "")
         {
             LiquidFunctions.RegisterViewModel(typeof(T));
             var template = Template.Parse(liquidTemplate);
@@ -103,6 +103,11 @@ namespace DotLiquid.Mailer
                 Priority = IsHigh ? MailPriority.High : MailPriority.Normal
             };
             mail.To.Add(to);
+
+            if(!string.IsNullOrWhiteSpace(cc))
+                mail.CC.Add(cc);
+            if (!string.IsNullOrWhiteSpace(bcc))
+                mail.Bcc.Add(bcc);
 
             _smtpMailer.Send(mail);
 

@@ -41,6 +41,16 @@ namespace DotLiquid.Mailer.Tests
            
         }
 
+        [TestMethod]
+        public void ShouldSendEmailFromNamedAddressWithCcAndBcc()
+        {
+            Assert.IsTrue(_mailer.SendFromFile<Order>("ShouldSendEmail",
+                "OrderConfirmation.liquid.html", _orderData, "john.doe@nowhere.net",
+                "named.sender@mytest.org", 
+                "john.doe2@nowhere.net, john.doe3@nowhere.net", "john.doe4@nowhere.net, john.doe5@nowhere.net"));
+
+        }
+
     }
 
 }
